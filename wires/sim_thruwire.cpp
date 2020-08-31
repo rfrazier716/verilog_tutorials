@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vthruwire.h"
+#include "obj_dir/Vthruwire.h"
 #include "verilated.h"
 
 int main(int argc, char **argv)
