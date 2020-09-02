@@ -12,10 +12,14 @@ add_executable(thruwire
 
 # Add a custom shell command executed before before building target
 # This runs the verilator to generate as well as make the code
-add_custom_command(TARGET thruwire PRE_BUILD
-    COMMAND "./generate_verilator_thruwire.sh"
-    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/wires"
-    )
+
+if(${REBUILD_VERILATOR})
+    add_custom_target(thruwire_vl ALL
+        COMMAND sh generate_verilator_thruwire.sh
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/wires"
+        )
+    add_dependencies(thruwire thruwire_vl)
+ENDIF()
 
 target_link_libraries(thruwire 
     "${CMAKE_SOURCE_DIR}/wires/obj_dir/Vthruwire__ALL.a"
