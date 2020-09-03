@@ -13,8 +13,9 @@ set(VERILATED "${VERILATOR_INCLUDE}/verilated.cpp")
 include_directories("${VERILATOR_INCLUDE}") # verilator core files
 
 # Uncomment below line to rebuild/make all verilator code, otherwise will not regenerate from verilog
-# SET(REBUILD_VERILATOR TRUE) 
+SET(REBUILD_VERILATOR TRUE) 
 
 # Add *.cmake files below for specific targets
 #----------------------------------------------------------
 INCLUDE("cmake/thruwire.cmake") # Thruwire Example
+INCLUDE("cmake/blinky.cmake") # Register based LED Blink
