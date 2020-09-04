@@ -1,0 +1,1 @@
+[FPGA4Fun Carry Chains](https://www.fpga4fun.com/Counters4.html)

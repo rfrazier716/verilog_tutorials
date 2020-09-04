@@ -4,9 +4,10 @@
 #
 ###########################################
 
+
 # Create new Target
-add_executable(blinky
-    "registers/blinky/sim_blinky.cpp"
+add_executable(overflow
+    "registers/clock_overflow/sim_overflow.cpp"
     ${VERILATED}
 )
 
@@ -14,13 +15,13 @@ add_executable(blinky
 # This runs the verilator to generate as well as make the code
 
 if(${REBUILD_VERILATOR})
-    add_custom_target(blinky_vl ALL
-        COMMAND sh generate_verilator_blinky.sh
-        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/registers/blinky"
+    add_custom_target(overflow_vl ALL
+        COMMAND sh generate_verilator_overflow.sh
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/registers/clock_overflow"
         )
-    add_dependencies(blinky blinky_vl)
+    add_dependencies(overflow overflow_vl)
 ENDIF()
 
-target_link_libraries(blinky 
-    "${CMAKE_SOURCE_DIR}/registers/blinky/obj_dir/Vblinky__ALL.a"
+target_link_libraries(overflow 
+    "${CMAKE_SOURCE_DIR}/registers/clock_overflow/obj_dir/Vclock_overflow__ALL.a"
 ) # Link to the Verilator Generated static library

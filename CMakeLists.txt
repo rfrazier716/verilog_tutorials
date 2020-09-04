@@ -19,3 +19,4 @@ SET(REBUILD_VERILATOR TRUE)
 #----------------------------------------------------------
 INCLUDE("cmake/thruwire.cmake") # Thruwire Example
 INCLUDE("cmake/blinky.cmake") # Register based LED Blink
+INCLUDE("cmake/clock_overflow.cmake") # Example of an overflow flag
