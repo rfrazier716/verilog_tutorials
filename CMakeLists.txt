@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Define Necessary Verilator Core Files
 set(VERILATOR_INCLUDE  "/usr/share/verilator/include")
 set(VERILATED "${VERILATOR_INCLUDE}/verilated.cpp")
+set(VERILATED_TRACE "${VERILATOR_INCLUDE}/verilated_vcd_c.cpp")
 
 # Add the Verilator Include path to the include search directory
 include_directories("${VERILATOR_INCLUDE}") # verilator core files
@@ -20,3 +21,4 @@ SET(REBUILD_VERILATOR TRUE)
 INCLUDE("cmake/thruwire.cmake") # Thruwire Example
 INCLUDE("cmake/blinky.cmake") # Register based LED Blink
 INCLUDE("cmake/clock_overflow.cmake") # Example of an overflow flag
+INCLUDE("cmake/led_walker.cmake") # Example of a Finite State Machine changing LED output

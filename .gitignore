@@ -6,3 +6,7 @@ build/
 
 # Any obj_dir directory which is where Verilator generates code
 obj_dir/
+
+# Specifically Ignored Files
+#VCD Trace generated for GTKWave Viewing
+*.vcd
