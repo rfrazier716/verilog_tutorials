@@ -22,3 +22,4 @@ INCLUDE("cmake/thruwire.cmake") # Thruwire Example
 INCLUDE("cmake/blinky.cmake") # Register based LED Blink
 INCLUDE("cmake/clock_overflow.cmake") # Example of an overflow flag
 INCLUDE("cmake/led_walker.cmake") # Example of a Finite State Machine changing LED output
+INCLUDE("cmake/busMaster.cmake") # example of a databus

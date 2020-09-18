@@ -6,8 +6,8 @@
 
 
 # Create new Target
-add_executable(walker
-    "FSM/sim_walker.cpp"
+add_executable(bus
+    "hiZBus/sim_bus.cpp"
     ${VERILATED}
     ${VERILATED_TRACE}
 )
@@ -16,13 +16,13 @@ add_executable(walker
 # This runs the verilator to generate as well as make the code
 
 if(${REBUILD_VERILATOR})
-    add_custom_target(walker_vl ALL
-        COMMAND sh generate_verilator_walker.sh
-        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/FSM"
+    add_custom_target(bus_vl ALL
+        COMMAND sh generate_verilator_bus.sh
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/hiZBus"
         )
-    add_dependencies(walker walker_vl)
+    add_dependencies(bus bus_vl)
 ENDIF()
 
-target_link_libraries(walker 
-    "${CMAKE_SOURCE_DIR}/FSM/obj_dir/VledWalker__ALL.a"
+target_link_libraries(bus 
+    "${CMAKE_SOURCE_DIR}/hiZBus/obj_dir/VbusMaster__ALL.a"
 ) # Link to the Verilator Generated static library

@@ -10,3 +10,4 @@ obj_dir/
 # Specifically Ignored Files
 #VCD Trace generated for GTKWave Viewing
 *.vcd
+save_file.gtkw

@@ -2,11 +2,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "obj_dir/VledWalker.h"
+#include "obj_dir/VbusMaster.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-#define MODULE VledWalker
+#define MODULE VbusMaster
 
 template<class T>
 void tick(int tickcount, T *tb, VerilatedVcdC* tfp) 
@@ -37,7 +37,11 @@ int main(int argc, char **argv)
     Verilated::traceEverOn(true);
 	VerilatedVcdC* tfp = new VerilatedVcdC;
 	tb->trace(tfp, 00);
-	tfp->open("walkerTrace.vcd");
+	tfp->open("busTrace.vcd");
+	//reset the state machine
+	tb->reset=1;
+	tick(++tickcount, tb, tfp);
+	tb->reset=0;
 
     for(int k=0;k<(1<<16);k++)
     {
